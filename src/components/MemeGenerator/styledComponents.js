@@ -52,3 +52,40 @@ export const InputContainer = styled.div`
   flex-direction: column;
   width: 100%;
 `
+export const LabelElement = styled.label`
+  color: #7e858e;
+  font-family: 'Open Sans';
+  font-size: 12px;
+  font-weight: normal;
+`
+
+export const InputElement = styled.input`
+  border: 1px solid #d7dfe9;
+  border-radius: 5px;
+  width: 80%;
+  padding: 10px;
+  color: #5a7184;
+  font-family: 'Open Sans';
+  font-size: 12px;
+`
+
+export const FontSizeDrop = styled(InputElement)
+
+export const OptionElement = styled.option`
+  color: #1e293b;
+  font-family: 'Open Sans';
+  font-size: 12px;
+`
+
+export const GenerateBtn = styled.button`
+  color: #ffffff;
+  background-color: #0b69ff;
+  padding: 10px 15px;
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 500;
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  cursor: pointer;
+`

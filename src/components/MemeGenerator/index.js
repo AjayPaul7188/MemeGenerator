@@ -110,6 +110,7 @@ class MemeGenerator extends Component {
             <InputContainer>
               <LabelElement htmlFor="fontSize">Font Size</LabelElement>
               <FontSizeDrop
+                as="select"
                 name="fontSizes"
                 id="fontSize"
                 onChange={this.onChangeFontSize}
