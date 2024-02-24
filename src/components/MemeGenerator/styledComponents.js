@@ -27,10 +27,13 @@ export const OutputContainerSm = styled.div`
   background-image: url(${props => props.imageUrl});
   background-size: cover;
   height: 30vh;
-  width: 80vw;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    display: none;
+  }
 `
 
 export const TopText = styled.p`
@@ -40,7 +43,13 @@ export const TopText = styled.p`
   font-size: ${props => props.fontSize};
   text-align: center;
 `
-export const BottomText = styled(TopText)
+export const BottomText = styled.p`
+  color: #ffffff;
+  font-family: 'Open Sans';
+  font-weight: bold;
+  font-size: ${props => props.fontSize};
+  text-align: center;
+`
 
 export const FormContainer = styled.form`
   width: 100%;
@@ -57,6 +66,7 @@ export const LabelElement = styled.label`
   font-family: 'Open Sans';
   font-size: 12px;
   font-weight: normal;
+  margin-bottom: 10px;
 `
 
 export const InputElement = styled.input`
@@ -69,7 +79,15 @@ export const InputElement = styled.input`
   font-size: 12px;
 `
 
-export const FontSizeDrop = styled(InputElement)
+export const FontSizeDrop = styled.select`
+  border: 1px solid #d7dfe9;
+  border-radius: 5px;
+  width: 80%;
+  padding: 10px;
+  color: #5a7184;
+  font-family: 'Open Sans';
+  font-size: 12px;
+`
 
 export const OptionElement = styled.option`
   color: #1e293b;
@@ -88,4 +106,18 @@ export const GenerateBtn = styled.button`
   border-radius: 10px;
   outline: none;
   cursor: pointer;
+  margin: 15px;
+`
+
+export const OutputContainer = styled.div`
+  height: 50vh;
+  background-image: url(${props => props.imageUrl});
+  background-size: cover;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
 `

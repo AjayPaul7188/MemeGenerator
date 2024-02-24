@@ -6,7 +6,6 @@ import {
   BottomText,
   Heading,
   SpecsContainer,
-  OutputContainer,
   OutputContainerSm,
   FormContainer,
   InputContainer,
@@ -15,6 +14,7 @@ import {
   FontSizeDrop,
   OptionElement,
   GenerateBtn,
+  OutputContainer,
 } from './styledComponents'
 
 const fontSizesOptionsList = [
@@ -58,12 +58,39 @@ class MemeGenerator extends Component {
     btnClicked: false,
   }
 
+  onChangeImageUrl = event => {
+    this.setState({imageUrl: event.target.value})
+  }
+
+  onChangeTopText = event => {
+    this.setState({topText: event.target.value})
+  }
+
+  onChangeBottomText = event => {
+    this.setState({bottomText: event.target.value})
+  }
+
+  onChangeFontSize = event => {
+    this.setState({fontSize: event.target.value})
+  }
+
+  submitForm = event => {
+    event.preventDefault()
+    const {imageUrl, topText, bottomText} = this.state
+
+    if (imageUrl === '' || topText === '' || bottomText === '') {
+      alert('Enter the required data')
+    } else {
+      this.setState({btnClicked: true})
+    }
+  }
+
   render() {
     const {imageUrl, topText, bottomText, fontSize, btnClicked} = this.state
 
     return (
       <MainContainer>
-        <SpecsContainer>
+        <SpecsContainer data-testid="meme">
           <Heading>Meme Generator</Heading>
 
           {btnClicked === true ? (
@@ -73,7 +100,7 @@ class MemeGenerator extends Component {
             </OutputContainerSm>
           ) : null}
 
-          <FormContainer onSubmit={this.submitForm}>
+          <FormContainer as="form" onSubmit={this.submitForm}>
             <InputContainer>
               <LabelElement htmlFor="imageUrl">Image URl</LabelElement>
               <InputElement
@@ -81,7 +108,7 @@ class MemeGenerator extends Component {
                 type="text"
                 value={imageUrl}
                 onChange={this.onChangeImageUrl}
-                place="Enter the Image URL"
+                placeholder="Enter the Image URL"
               />
             </InputContainer>
 
@@ -92,7 +119,7 @@ class MemeGenerator extends Component {
                 type="text"
                 value={topText}
                 onChange={this.onChangeTopText}
-                place="Enter the Top Text"
+                placeholder="Enter the Top Text"
               />
             </InputContainer>
 
@@ -103,7 +130,7 @@ class MemeGenerator extends Component {
                 type="text"
                 value={bottomText}
                 onChange={this.onChangeBottomText}
-                place="Enter the Bottom Text"
+                placeholder="Enter the Bottom Text"
               />
             </InputContainer>
 
@@ -114,11 +141,12 @@ class MemeGenerator extends Component {
                 name="fontSizes"
                 id="fontSize"
                 onChange={this.onChangeFontSize}
+                value={fontSize}
               >
                 {fontSizesOptionsList.map(eachItem => (
                   <OptionElement
                     value={eachItem.displayText}
-                    id={eachItem.optionId}
+                    key={eachItem.optionId}
                   >
                     {eachItem.displayText}
                   </OptionElement>
