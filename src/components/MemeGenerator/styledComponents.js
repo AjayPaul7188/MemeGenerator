@@ -40,14 +40,14 @@ export const TopText = styled.p`
   color: #ffffff;
   font-family: 'Open Sans';
   font-weight: bold;
-  font-size: ${props => props.fontSize};
+  font-size: ${props => props.fontSize}px;
   text-align: center;
 `
 export const BottomText = styled.p`
   color: #ffffff;
   font-family: 'Open Sans';
   font-weight: bold;
-  font-size: ${props => props.fontSize};
+  font-size: ${props => props.fontSize}px;
   text-align: center;
 `
 
